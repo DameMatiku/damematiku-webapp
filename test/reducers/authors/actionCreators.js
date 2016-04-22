@@ -28,6 +28,7 @@ describe('authors loading action creators', () => {
           method: 'GET',
           types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
         }
+        
       }
     );
   });
