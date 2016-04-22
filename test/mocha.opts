@@ -1,0 +1,6 @@
+--compilers js:babel-register
+--recursive
+--timeout 2000
+--reporter nyan
+--require ./test/setup.js
+
