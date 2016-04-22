@@ -6,13 +6,11 @@ import { actionTypes, loadFeatured } from '../../../src/reducers/featuredVideos/
 describe('featured videos loading action creators', () => {
 
   it('must create correct API action', () => {
-    expect(loadFeatured()).to.eql(
+    expect(loadFeatured()[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: `${API_BASE}/videos/featured`,
-          method: 'GET',
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
+        endpoint: `${API_BASE}/videos/featured`,
+        method: 'GET',
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
       }
     );
   });

@@ -17,6 +17,7 @@ const video = {
   "votes": -3,
   "myVote": "up"
 };
+const accessToken = "asldkjasldkjasdlkjasdlkjaslkdjaslkdjaskjfdhsdlkfjhalkfdjhakldsfjn";
 
 describe('voting action creators', () => {
 
@@ -31,42 +32,37 @@ describe('voting action creators', () => {
 
   it('must create correct API action for upvoting', () => {
     const id = "bdcalksdj";
-    expect(upvote(id)).to.eql(
+    expect(upvote(accessToken, id)[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: `${API_BASE}/videos/${id}/upvote`,
-          method: 'POST',
-          meta: { videoId: id, vote: voteTypes.UP },
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
+        endpoint: `${API_BASE}/videos/${id}/upvote`,
+        method: 'POST',
+        meta: { videoId: id, vote: voteTypes.UP },
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, { type: actionTypes.ERROR, meta: (action) => ({ videoId: action.videoId }) } ]
       }
     );
   });
 
   it('must create correct API action for downvoting', () => {
     const id = "bdcalksdj";
-    expect(downvote(id)).to.eql(
+    expect(downvote(accessToken, id)[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: `${API_BASE}/videos/${id}/downvote`,
-          method: 'POST',
-          meta: { videoId: id, vote: voteTypes.DOWN },
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
+        endpoint: `${API_BASE}/videos/${id}/downvote`,
+        method: 'POST',
+        meta: { videoId: id, vote: voteTypes.DOWN },
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, { type: actionTypes.ERROR, meta: (action) => ({ videoId: action.videoId }) } ]
       }
     );
   });
 
   it('must create correct API action for voting reset', () => {
     const videoId = "bdcalksdj";
-    expect(resetVote(videoId)).to.eql(
+    const action = resetVote(accessToken, videoId);
+    expect(action[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: `${API_BASE}/videos/${videoId}/resetVote`,
-          method: 'POST',
-          meta: { videoId, vote: voteTypes.NONE },
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
+        endpoint: `${API_BASE}/videos/${videoId}/resetVote`,
+        method: 'POST',
+        meta: { videoId, vote: voteTypes.NONE },
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, { type: actionTypes.ERROR, meta: (action) => ({ videoId: action.videoId }) } ]
       }
     );
   });

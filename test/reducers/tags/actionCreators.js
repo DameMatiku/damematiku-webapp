@@ -6,13 +6,11 @@ import { actionTypes, loadTags } from '../../../src/reducers/tags/actionCreators
 describe('tags loading action creators', () => {
 
   it('must create correct API action', () => {
-    expect(loadTags()).to.eql(
+    expect(loadTags()[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: API_BASE + '/tags',
-          method: 'GET',
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
+        endpoint: API_BASE + '/tags',
+        method: 'GET',
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
       }
     );
   });

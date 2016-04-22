@@ -28,13 +28,11 @@ describe('videos loading action creators', () => {
 
   it('must create correct API action', () => {
     const id = "bdcalksdj";
-    expect(loadVideo(id)).to.eql(
+    expect(loadVideo(id)[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: `${API_BASE}/videos/${id}`,
-          method: 'GET',
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
+        endpoint: `${API_BASE}/videos/${id}`,
+        method: 'GET',
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
       }
     );
   });

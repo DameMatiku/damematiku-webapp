@@ -14,14 +14,12 @@ describe('sections loading action creators', () => {
     expectedBody.append('tags[]', 'b');
     expectedBody.append('tags[]', 'c');
 
-    expect(loadMathSections(tags)).to.eql(
+    expect(loadMathSections(tags)[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: API_BASE + '/sections/math',
-          method: 'GET',
-          body: expectedBody,
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
+        endpoint: API_BASE + '/subjects/math',
+        method: 'GET',
+        body: expectedBody,
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
       }
     );
   });

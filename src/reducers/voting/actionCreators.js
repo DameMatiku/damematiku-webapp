@@ -18,35 +18,29 @@ export const initVoting = (video) => {
   }
 };
 
-export const upvote = (videoId) => {
-  return {
-    [CALL_API]: {
-      endpoint: `${API_BASE}/videos/${videoId}/upvote`,
-      method: 'POST',
-      meta: { videoId, vote: voteTypes.UP },
-      types: [ actionTypes.REQUEST, actionTypes.SUCCESS, { type: actionTypes.ERROR, meta: (action) => { videoId: action.meta.videoId } } ]
-    }
-  };
-};
+export const upvote = (accessToken, videoId) => ({
+  [CALL_API]: {
+    endpoint: `${API_BASE}/videos/${videoId}/upvote`,
+    method: 'POST',
+    meta: { videoId, vote: voteTypes.UP },
+    types: [ actionTypes.REQUEST, actionTypes.SUCCESS, { type: actionTypes.ERROR, meta: (action) => { videoId: action.meta.videoId } } ]
+  }
+});
 
-export const downvote = (videoId) => {
-  return {
-    [CALL_API]: {
-      endpoint: `${API_BASE}/videos/${videoId}/downvote`,
-      method: 'POST',
-      meta: { videoId, vote: voteTypes.DOWN },
-      types: [ actionTypes.REQUEST, actionTypes.SUCCESS, { type: actionTypes.ERROR, meta: (action) => { videoId: action.meta.videoId } } ]
-    }
-  };
-};
+export const downvote = (accessToken, videoId) => ({
+  [CALL_API]: {
+    endpoint: `${API_BASE}/videos/${videoId}/downvote`,
+    method: 'POST',
+    meta: { videoId, vote: voteTypes.DOWN },
+    types: [ actionTypes.REQUEST, actionTypes.SUCCESS, { type: actionTypes.ERROR, meta: (action) => { videoId: action.meta.videoId } } ]
+  }
+});
 
-export const resetVote = (videoId) => {
-  return {
-    [CALL_API]: {
-      endpoint: `${API_BASE}/videos/${videoId}/resetVote`,
-      method: 'POST',
-      meta: { videoId, vote: voteTypes.NONE },
-      types: [ actionTypes.REQUEST, actionTypes.SUCCESS, { type: actionTypes.ERROR, meta: (action) => { videoId: action.meta.videoId } } ]
-    }
-  };
-};
+export const resetVote = (accessToken, videoId) => ({
+  [CALL_API]: {
+    endpoint: `${API_BASE}/videos/${videoId}/resetVote`,
+    method: 'POST',
+    meta: { videoId, vote: voteTypes.NONE },
+    types: [ actionTypes.REQUEST, actionTypes.SUCCESS, { type: actionTypes.ERROR, meta: (action) => { videoId: action.meta.videoId } } ]
+  }
+});

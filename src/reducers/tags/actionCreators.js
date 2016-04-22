@@ -9,7 +9,7 @@ export const actionTypes = {
 
 export const loadTags = () => ({
   [CALL_API]: {
-    endpoint: API_BASE + '/tests',
+    endpoint: API_BASE + '/tags',
     method: 'GET',
     types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
   }

@@ -12,14 +12,12 @@ describe('search action creators', () => {
     const expectedBody = new FormData();
     expectedBody.append('q', searchTerm);
 
-    expect(performSearch(searchTerm)).to.eql(
+    expect(performSearch(searchTerm)[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: API_BASE + '/search',
-          method: 'GET',
-          body: expectedBody,
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
+        endpoint: API_BASE + '/search',
+        method: 'GET',
+        body: expectedBody,
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
       }
     );
   });

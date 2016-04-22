@@ -48,13 +48,11 @@ describe('chapters loading action creators', () => {
 
   it('must create correct API action', () => {
     const id = "bdcalksdj";
-    expect(loadChapter(id)).to.eql(
+    expect(loadChapter(id)[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: `${API_BASE}/chapters/${id}`,
-          method: 'GET',
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
+        endpoint: `${API_BASE}/chapters/${id}`,
+        method: 'GET',
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
       }
     );
   });

@@ -21,14 +21,11 @@ describe('authors loading action creators', () => {
 
   it('must create correct API action', () => {
     const id = 1325;
-    expect(loadAuthor(id)).to.eql(
+    expect(loadAuthor(id)[CALL_API]).to.eql(
       {
-        [CALL_API]: {
-          endpoint: `${API_BASE}/authors/${id}`,
-          method: 'GET',
-          types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
-        }
-        
+        endpoint: `${API_BASE}/authors/${id}`,
+        method: 'GET',
+        types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]        
       }
     );
   });
