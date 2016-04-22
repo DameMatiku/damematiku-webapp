@@ -51,6 +51,7 @@
     "babel-preset-stage-1": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
     "babel-preset-stage-3": "^6.5.0",
+    "form-data": "^1.0.0-rc4",
     "jsdom": "^8.4.0",
     "remote-redux-devtools": "^0.2.2",
     "webpack": "^1.13.0",

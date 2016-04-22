@@ -1,4 +1,4 @@
-nck = require('webpack');
+var webpack = require('webpack');
 var path = require('path');
 var version = 'dev-en';
 
@@ -22,11 +22,17 @@ module.exports = {
   module: {
     loaders: [
       {
-	test: /\.js$/,
-	loaders: [ 'babel' ],
-	include: path.join(__dirname, 'src')
+      	test: /\.js$/,
+      	loaders: [ 'babel' ],
+      	include: path.join(__dirname, 'src')
       }
     ]
-  }
+  },
+
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"development"'
+    })
+  ]
 
 };
