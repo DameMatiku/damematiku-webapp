@@ -11,10 +11,17 @@ import ReactDOM from 'react-dom';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import { Provider } from 'react-redux';
+import configureStore from './configureStore';
 import AppBar from 'material-ui/AppBar';
 
+const initialState = undefined; // @todo
+const store = configureStore(initialState);
+
 ReactDOM.render((
-  <MuiThemeProvider muiTheme={getMuiTheme()}>
-    <AppBar title={'Dáme matiku'} />
-  </MuiThemeProvider>
+  <Provider store={store}>
+    <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <AppBar title={'Dáme matiku'} />
+    </MuiThemeProvider>
+  </Provider>
 ), document.getElementById('dame-matiku-root'));
