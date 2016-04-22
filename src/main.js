@@ -12,16 +12,23 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { Provider } from 'react-redux';
+import { Router, browserHistory, hashHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+
 import configureStore from './configureStore';
-import AppBar from 'material-ui/AppBar';
+import routes from './routes';
 
 const initialState = undefined; // @todo
 const store = configureStore(initialState);
+// const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 
 ReactDOM.render((
-  <Provider store={store}>
-    <MuiThemeProvider muiTheme={getMuiTheme()}>
-      <AppBar title={'Dáme matiku'} />
-    </MuiThemeProvider>
-  </Provider>
+  <MuiThemeProvider muiTheme={getMuiTheme()}>
+    <Provider store={store}>
+      <Router history={history}>
+        {routes}
+      </Router>
+    </Provider>
+  </MuiThemeProvider>
 ), document.getElementById('dame-matiku-root'));
