@@ -7,23 +7,20 @@ export const status = {
 };
 
 const initialState = {
-  status: status.LOADING,
-  video: null
+  status: status.LOADED,
+  results: []
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SELECT:
-      return { status: status.LOADED, video: action.video };
-
     case actionTypes.REQUEST:
-      return { ...state, status: status.LOADING, video: null };
+      return { status: status.LOADING, results: [] };
 
     case actionTypes.SUCCESS:
-      return { ...state, status: status.LOADED, video: action.payload };
+      return { status: status.LOADED, results: action.payload };
 
     case actionTypes.ERROR:
-      return { status: status.ERROR, video: null };
+      return { status: status.ERROR, results: [] };
 
     default:
       return state;
