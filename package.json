@@ -1,0 +1,34 @@
+{
+  "name": "damematiku-webapp",
+  "version": "1.0.0",
+  "description": "#v4hack2016 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DameMatiku/WebApp.git"
+  },
+  "keywords": [
+    "education",
+    "v4hack2016",
+    "reactjs",
+    "redux"
+  ],
+  "author": "Šimon Rozsíval",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/DameMatiku/WebApp/issues"
+  },
+  "homepage": "https://github.com/DameMatiku/WebApp#readme",
+  "dependencies": {
+    "material-ui": "^0.15.0-beta.2",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-redux": "^4.4.5",
+    "react-tap-event-plugin": "^1.0.0",
+    "redux": "^3.5.1",
+    "whatwg-fetch": "^0.11.0"
+  }
+}
