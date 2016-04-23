@@ -27,7 +27,8 @@ const reducer = (state = initialState, action) => {
         [action.videoId]: {
           status: status.LOADED,
           hasVoted: action.hasVoted,
-          vote: action.vote
+          vote: action.vote,
+          // total: action.totalVotes, // ---- @todo --- rewrite this 'from scratch'
         }
       });
 

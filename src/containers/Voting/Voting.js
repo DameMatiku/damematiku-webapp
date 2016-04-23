@@ -32,10 +32,10 @@ class Voting extends Component {
   render() {
     const { accessToken, score, vote } = this.props;
     return (
-      <div>
-        <FlatButton label={'Upvote'} onMouseUp={this.onVoteUp} onTouchStop={this.onVoteUp} primary={vote === 'UP'} disabled={accessToken === null && false} />
-        <b>{score}</b>
-        <FlatButton label={'Downvote'} onMouseUp={this.onVoteDown} onTouchStop={this.onVoteDown} primary={vote === 'DOWN'} disabled={accessToken === null && false} />
+      <div style={{ textAlign: 'right' }}>
+        <FlatButton label={'Plus'} onMouseUp={this.onVoteUp} onTouchStop={this.onVoteUp} primary={vote === 'UP'} disabled={accessToken === null && false} />
+        <b style={{ marginLeft: 10, marginRight: 10 }}>{score}</b>
+        <FlatButton label={'Mínus'} onMouseUp={this.onVoteDown} onTouchStop={this.onVoteDown} primary={vote === 'DOWN'} disabled={accessToken === null && false} />
       </div>
     );
   }
@@ -46,13 +46,13 @@ const mapStateToProps = (state, props) => ({
   accessToken: state.authentication.accessToken,
   voting: state.voting[props.video.id],
   vote: !!state.voting[props.video.id] ? state.voting[props.video.id].vote : null,
-  score: Number(props.video.votes) + (!!state.voting[props.video.id] && state.voting[props.video.id].vote !== 'NONE' ? (state.voting[props.video.id].vote === 'UP' ? 1 : -1) : 0)
+  score: Number(props.video.votes)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
   init: () => dispatch(initVoting(props.video)),
   upvote: (accessToken) => dispatch(upvote(accessToken, props.video.id)),
-  downvote: (accessToken) => dispatch(upvote(accessToken, props.video.id)),
+  downvote: (accessToken) => dispatch(downvote(accessToken, props.video.id)),
   resetVote: (accessToken) => dispatch(resetVote(accessToken, props.video.id))
 });
 

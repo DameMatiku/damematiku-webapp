@@ -36,14 +36,16 @@ class SectionsPage extends Component {
   };
 
   render() {
+    return this.renderSections();
+    /*
     switch (this.props.status) {
       case 'LOADING':
-        return this.renderLoading();
+        //return this.renderLoading();
       case 'LOADED':
-        return this.renderSections();
       default:
         // return this.renderError();
     }
+    */
   }
 
 }
