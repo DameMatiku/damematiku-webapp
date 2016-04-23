@@ -8,7 +8,7 @@ const VideoView = ({ video }) => (
   <div>
     <Voting video={video} />
     <Youtube videoId={video.youtubeId} />
-    <AuthorView author={video.author} />
+    {/*<AuthorView author={video.author} />*/}
   </div>
 );
 
