@@ -18,7 +18,7 @@ const initialState = {};
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.INIT:
-      if (state.hasOwnPrototype(action.videoId)) {
+      if (state.hasOwnProperty(action.videoId)) {
         // do not override the in-memmory - more up-to-date - data
         return status;
       }

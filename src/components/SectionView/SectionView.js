@@ -5,22 +5,22 @@ import List, { ListItem } from 'material-ui/List';
 import ChapterListView from '../ChapterListView/ChapterListView';
 import Avatar from 'material-ui/Avatar';
 
-const SectionView = ({ n, section }) => {
+const SectionView = ({ n, section, viewChapter }) => {
   return (
-    <Card>
+    <Card initiallyExpanded={true}>
       <CardHeader
         title={section.name}
-        subtitle={''}
+        subtitle={'Dáme Matiku!'}
         actAsExpander={true}
-        showExpandableButton={true}
-        avatar={<Avatar>{n}</Avatar>} />
+        showExpandableButton={true}        
+        avatar={<Avatar color={'white'} backgroundColor={'#e60434'}>{n}</Avatar>} />
       <CardText expandable={true}>
         <List>
           {section.chapters.map((chapter, key) =>
-            <ChapterListView key={key} n={key + 1} chapter={chapter} viewChapter={() => console.log(chapter)} />)}
+            <ChapterListView key={key} n={key + 1} chapter={chapter} viewChapter={viewChapter} />)}
 
-          {section.chapers.length === 0
-            && <ListItem primaryText={'V této kapitole nejsou žádná videa.'} />}
+          {section.chapters.length === 0
+            && <ListItem primaryText={'V této kapitole nejsou žádná videa.'} disabled />}
         </List>
       </CardText>
     </Card>

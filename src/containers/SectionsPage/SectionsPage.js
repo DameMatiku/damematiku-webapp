@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 
 import LinearProgress from 'material-ui/LinearProgress';
 import { loadMathSections } from '../../reducers/sections/actionCreators';
@@ -24,11 +25,15 @@ class SectionsPage extends Component {
     <LinearProgress mode="indeterminate"/>
   );
 
-  renderSections = () => (
-    <div>
-      {this.props.sections.map((section, key) => <SectionView section={section} key={key} n={key + 1} />)}
-    </div>
-  );
+  renderSections = () => {
+    const { sections, viewChapter } = this.props;
+    return (
+      <div>
+        {sections.map((section, key) =>
+          <SectionView section={section} key={key} n={key + 1} viewChapter={viewChapter} />)}
+      </div>
+    );
+  };
 
   render() {
     switch (this.props.status) {
@@ -49,7 +54,8 @@ const mapStateToProps = (state) => ({
   tags: state.tags.selected
 });
 const mapDispatchToProps = (dispatch, props) => ({
-  loadSections: (tags) => dispatch(loadMathSections(tags))
+  loadSections: (tags) => dispatch(loadMathSections(tags)),
+  viewChapter: (chapter) => dispatch(push(`/#/chapters/${chapter.id}`))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SectionsPage);

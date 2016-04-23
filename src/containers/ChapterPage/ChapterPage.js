@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 import LinearProgress from 'material-ui/LinearProgress';
 import { loadChapter } from '../../reducers/chapters/actionCreators';
-import { ChapterDescription } from '../../components/ChapterDescription/ChapterDescription';
+import ChapterDescription from '../../components/ChapterDescription/ChapterDescription';
+import VideoView from '../../components/VideoView/VideoView';
+import EmptyChapterView from '../../components/EmptyChapterView/EmptyChapterView';
 
 class ChapterPage extends Component {
 
@@ -18,14 +20,17 @@ class ChapterPage extends Component {
     <LinearProgress mode="indeterminate"/>
   );
 
-  renderChapter = () => (
-    <div>
-      <ChapterDescription chapter={chapter} />
-      <hr />
-      {chapter.videos.length > 0 && chapter.videos.map((video, key) => <VideoView key={key} video={video} />)}
-      {chapter.videos.length === 0 && <EmptyChapterView chapter={chapter} />}
-    </div>
-  );
+  renderChapter = () => {
+    console.log(this.props);
+    const { chapter } = this.props;
+    return ( 
+      <div>
+        {/*<ChapterDescription chapter={chapter} />*/}
+        {/*chapter.videos.length > 0 && chapter.videos.map((video, key) => <VideoView key={key} video={video} />)*/}
+        {chapter.videos.length === 0 && <EmptyChapterView chapter={chapter} />}
+      </div>
+    );
+  };
 
   render() {
     switch (this.props.status) {

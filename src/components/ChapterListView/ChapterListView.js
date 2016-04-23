@@ -5,8 +5,8 @@ import { ListItem } from 'material-ui/List';
 
 const ChapterListView = ({ n, chapter, viewChapter }) => (
   <ListItem
-    onMouseUp={viewChapter}
-    onTouchStop={viewChapter}
+    onMouseUp={() => viewChapter(chapter)}
+    onTouchStop={() => viewChapter(chapter)}
     primaryText={chapter.name}
     leftAvatar={<Avatar>{n}</Avatar>} />
 );
