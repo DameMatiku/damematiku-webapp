@@ -29,7 +29,7 @@ class UserAuthPanel extends Component {
   );
 
   renderUnlogged = () => (
-    <div>
+    <div style={{ marginTop: 5 }}>
       <RaisedButton
         label={'Přihlásit se'}
         primary={true}

@@ -16,14 +16,18 @@ class SearchPanel extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ background: '#fff', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)', padding: 7, marginBottom: 20, borderRadius: 4 }}>
         <TextField
+          fullWidth={true}
+          style={{ width: '72%', marginRight: 15 }}
           onChange={(e) => this.setState({ query: e.target.value })}
-          floatingLabelText="Co potřebujete najít?" />
+          hintText={'Co potřebujete najít?'} />
         &nbsp;
         <RaisedButton
           label={'Hledat'}
           onMouseUp={this.onClick}
+          primary={true}
+          style={{ width: '18%' }}
           onTouchEnd={this.onClick}
           disabled={!this.state.query || this.state.query.length === 0} />
       </div>

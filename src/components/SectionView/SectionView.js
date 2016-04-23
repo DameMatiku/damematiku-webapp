@@ -7,7 +7,7 @@ import Avatar from 'material-ui/Avatar';
 
 const SectionView = ({ n, section, viewChapter }) => {
   return (
-    <Card initiallyExpanded={true}>
+    <Card>
       <CardHeader
         title={section.name}
         subtitle={'Dáme Matiku!'}

@@ -25,12 +25,12 @@ class Wrapper extends React.Component {
     return (
       <div className={'page'}>
         <AppBar
-          title={title}
+          title={<img src={'/logotype_inv.png'} style={{ marginTop: 14 }} />}
           onTitleTouchTap={() => window.location = '/'}
           iconElementLeft={<span />}
           iconElementRight={<UserAuthPanel />} />
         <div className={'pageContent'}>
-          <div style={{ textAlign: 'right', marginRight: 15, marginBottom: 20 }}>
+          <div style={{ textAlign: 'center', marginBottom: 10 }}>
             <SearchPanel />
           </div>
           {children}

@@ -26,7 +26,7 @@ const UploadPage = ({ }) => (
       <TextField floatingLabelText="Shrnutí vašeho pojetí tématu." rows={6} fullWidth={true} />
     </div>
     <div style={{ marginTop: 20, textAlign: 'center', marginBottom: 100 }}>
-      <RaisedButton label={'Přidat lekci'} primary={true} />
+      <RaisedButton label={'Přidat lekci'} primary={true} onMouseUp={() => window.location = '/#/'} />
     </div>
   </div>
 

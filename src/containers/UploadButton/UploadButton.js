@@ -7,8 +7,7 @@ class UploadButton extends Component {
 
   onClick = () => {
     const { chapter } = this.props;
-    // @todo
-    console.log('Upload video for chapter', chapter);
+    window.location = '/#/upload';
   };
 
   render() {
