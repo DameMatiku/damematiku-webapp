@@ -13,9 +13,9 @@ const UploadPage = ({ }) => (
 
     <div>
       <RadioButtonGroup name={'thumbnail'} style={{ overflow: 'hidden' }}>
-        <RadioButton value={'x'} label={<img src={'http://placehold.it/250x200'} width={170} />} style={{ float: 'left', width: '20%', marginRight: 15 }} />
-        <RadioButton value={'y'} label={<img src={'http://placehold.it/250x200'} width={170} />} style={{ float: 'left', width: '20%', marginRight: 15 }} />
-        <RadioButton value={'z'} label={<img src={'http://placehold.it/250x200'} width={170} />} style={{ float: 'left', width: '20%', marginRight: 15 }} />
+        <RadioButton value={'x'} label={<img src={'/assets/yt1.jpg'} width={170} />} style={{ float: 'left', width: '20%', marginRight: 15 }} />
+        <RadioButton value={'y'} label={<img src={'/assets/yt2.png'} width={170} />} style={{ float: 'left', width: '20%', marginRight: 15 }} />
+        <RadioButton value={'z'} label={<img src={'/assets/yt3.jpg'} width={170} />} style={{ float: 'left', width: '20%', marginRight: 15 }} />
       </RadioButtonGroup>
     </div>
 
