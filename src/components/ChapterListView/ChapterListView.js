@@ -1,12 +1,14 @@
 import React from 'react';
 
 import Avatar from 'material-ui/Avatar';
-import ListItem from 'material-ui/ListItem';
+import { ListItem } from 'material-ui/List';
 
-const ChapterListView = ({ chapter, viewChapter }) => (
+const ChapterListView = ({ n, chapter, viewChapter }) => (
   <ListItem
     onMouseUp={viewChapter}
     onTouchStop={viewChapter}
-    primaryText={chapter.title}
-    leftAvatar={<Avatar>1.1</Avatar>} />
+    primaryText={chapter.name}
+    leftAvatar={<Avatar>{n}</Avatar>} />
 );
+
+export default ChapterListView;

@@ -11,9 +11,10 @@ const Wrapper = ({ children, title = 'Hlavní strana' }) => (
       title={title}
       iconElementLeft={<span></span>}
       iconElementRight={<UserAuthPanel />} />
-    <div className={'pageContent'}>
-      <SearchPanel />
-      <hr />
+    <div className={'pageContent'} style={{ margin: 24 }}>
+      <div style={{ textAlign: 'center', margin: 15 }}>
+        <SearchPanel />
+      </div>
       {children}
     </div>
   </div>

@@ -12,10 +12,8 @@ class Tag extends Component {
     const { tag, isSelected, select, unselect, loadSections, selectedTags } = this.props;    
     if (isSelected) {
       unselect();
-      loadSections(selectedTags.filter(t => t.id !== tag.id));
     } else {
       select();
-      loadSections([ ...selectedTags, tag.id ]);
     }
   };
 
@@ -23,7 +21,7 @@ class Tag extends Component {
     const { tag, isSelected } = this.props;
     return  isSelected
               ? <RaisedButton label={tag.name} onMouseUp={this.onClick} onTouchStop={this.onClick} />
-              : <FlatButton label={tag.name} onMouseUp={this.onClick} onTouchStop={this.onClick} />;
+              : <FlatButton label={tag.name} onMouseUp={this.onClick} onTouchStop={this.onClick} style={{ fontFamily: 'Roboto' }} />;
   }
 }
 
@@ -32,7 +30,6 @@ const mapStateToProps = (state, props) => ({
   selectedTags: state.tags.selected,
 });
 const mapDispatchToProps = (dispatch, props) => ({
-  loadSections: (tags) => dispatch(loadMathSections(tags)),
   select: () => dispatch(selectTag(props.tag.id)),
   unselect: () => dispatch(unselectTag(props.tag.id)),
 });

@@ -20,6 +20,7 @@ class SearchPanel extends Component {
         <TextField
           onChange={(e) => this.setState({ query: e.target.value })}
           floatingLabelText="Co potřebujete najít?" />
+        &nbsp;
         <RaisedButton
           label={'Hledat'}
           onMouseUp={this.onClick}

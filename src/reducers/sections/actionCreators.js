@@ -7,13 +7,13 @@ export const actionTypes = {
   ERROR:    'sections/ERROR'
 };
 
-export const loadMathSections = (tags) => loadSections('math', tags);
+export const loadMathSections = (tags) => loadSections(1, tags);
 
 export const loadSections = (subject, tags) => {
   const queryString = tags.map(tag => `tags[]=${tag}`).join('&');
   return {
     [CALL_API]: {
-      endpoint: `${API_BASE}/subjects/${subject}${queryString.length > 0 ? `?${queryString}` : ''}`,
+      endpoint: `${API_BASE}/subjects/${subject}/sections${queryString.length > 0 ? `?${queryString}` : ''}`,
       method: 'GET',
       types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
     }
