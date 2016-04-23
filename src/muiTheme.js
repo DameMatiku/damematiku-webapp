@@ -1,6 +1,6 @@
 export default {
   palette: {
-    primary1Color: '#cddc39',
-    primary2Color: '#afb42b'
+    primary1Color: '#7CB342',
+    primary2Color: '#5E8832'
   }
 };

@@ -29,7 +29,7 @@ class Wrapper extends React.Component {
           onTitleTouchTap={() => window.location = '/'}
           iconElementLeft={<span />}
           iconElementRight={<UserAuthPanel />} />
-        <div className={'pageContent'} style={{ margin: 24 }}>
+        <div className={'pageContent'}>
           <div style={{ textAlign: 'right', marginRight: 15, marginBottom: 20 }}>
             <SearchPanel />
           </div>
