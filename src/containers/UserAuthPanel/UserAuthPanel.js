@@ -10,14 +10,14 @@ import { authenticate } from '../../reducers/authentication/authentication';
 class UserAuthPanel extends Component {
 
   componentWillMount = () => {    
-    window.gapi.load('auth2', () => {
+    /*window.gapi.load('auth2', () => {
       window.gapi.auth2.init({ client_id: GOOGLE_CLIENT_ID });
-    });
+    });*/
   };
 
   tryLogin = () => {
-     window.gapi.auth2.getAuthInstance().signIn({ scope: 'profile email' })
-      .then(this.onGoogleLoggedIn);
+     /*window.gapi.auth2.getAuthInstance().signIn({ scope: 'profile email' })
+      .then(this.onGoogleLoggedIn);*/      
   };
 
   onGoogleLoggedIn = (user) => {

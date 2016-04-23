@@ -1,9 +1,15 @@
 import React from 'react';
 import UploadButton from '../../containers/UploadButton/UploadButton';
+import Divider from 'material-ui/Divider';
 
 const EmptyChapterView = ({ chapter }) => (
   <div>
-    <h2>Jejda, tady mělo být video, ale není! Buď první, kdo přispěje!</h2>
-    <UploadButton chapter={chapter} />
+    <Divider />
+    <p>Jejda, tady měla být videa, ale žádná tu nejsou! <b>:-(</b> Buď první, kdo přispěje!</p>
+    <div style={{ textAlign: 'center', padding: 80, backgroundColor: '#eee' }}>
+      <UploadButton chapter={chapter} />
+    </div>
   </div>
 );
+
+export default EmptyChapterView;

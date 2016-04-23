@@ -8,7 +8,6 @@ const ChapterDescription = ({ chapter }) => (
   <div>
     <h2>{chapter.name}</h2>
     <p>{chapter.description}</p>
-    <UploadButton chapter={chapter} />
   </div>
 );
 

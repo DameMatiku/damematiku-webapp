@@ -55,7 +55,7 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = (dispatch, props) => ({
   loadSections: (tags) => dispatch(loadMathSections(tags)),
-  viewChapter: (chapter) => dispatch(push(`/#/chapters/${chapter.id}`))
+  viewChapter: (chapter) => window.location = `/#/chapters/${chapter.id}`
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SectionsPage);

@@ -20,7 +20,6 @@ const reducer = (state = initialState, action) => {
       return { status: status.LOADING, chapter: null };
 
     case actionTypes.SUCCESS:
-      console.log(action);
       return { status: status.LOADED, chapter: action.payload };
 
     case actionTypes.ERROR:

@@ -25,8 +25,8 @@ class ChapterPage extends Component {
     const { chapter } = this.props;
     return ( 
       <div>
-        {/*<ChapterDescription chapter={chapter} />*/}
-        {/*chapter.videos.length > 0 && chapter.videos.map((video, key) => <VideoView key={key} video={video} />)*/}
+        {<ChapterDescription chapter={chapter} />}
+        {chapter.videos.length > 0 && chapter.videos.map((video, key) => <VideoView key={key} video={video} />)}
         {chapter.videos.length === 0 && <EmptyChapterView chapter={chapter} />}
       </div>
     );

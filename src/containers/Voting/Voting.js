@@ -33,9 +33,9 @@ class Voting extends Component {
     const { accessToken, score, vote } = this.props;
     return (
       <div>
-        <FlatButton label={'Upvote'} onMouseUp={this.onVoteUp} onTouchStop={this.onVoteUp} primary={vote === 'UP'} disabled={accessToken === null} />
+        <FlatButton label={'Upvote'} onMouseUp={this.onVoteUp} onTouchStop={this.onVoteUp} primary={vote === 'UP'} disabled={accessToken === null && false} />
         <b>{score}</b>
-        <FlatButton label={'Downvote'} onMouseUp={this.onVoteDown} onTouchStop={this.onVoteDown} primary={vote === 'DOWN'} disabled={accessToken === null} />
+        <FlatButton label={'Downvote'} onMouseUp={this.onVoteDown} onTouchStop={this.onVoteDown} primary={vote === 'DOWN'} disabled={accessToken === null && false} />
       </div>
     );
   }

@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var path = require('path');
-var version = 'dev-en';
 
 module.exports = {
 
@@ -11,7 +10,7 @@ module.exports = {
   devtool: 'source-map',
 
   output: {
-    path: path.join(__dirname, '../www/frontend/', version),
+    path: __dirname,
     filename: 'dame-matiku.js'
   },
 

@@ -11,7 +11,7 @@ const VideoView = ({ video }) => (
   <Card>
     <CardHeader title={video.author.name} author={<Avatar src={video.author.avatarUrl} />} />
     <CardText>
-      <Youtube videoId={video.youtubeId} />
+      <Youtube videoId={video.youtubeId} opts={{ width: '100%', height: 500 }} />
       <Voting video={video} />
     </CardText>
     <Divider />
