@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import reducer, { status } from '../../../src/reducers/search/search';
 import { actionTypes, loadTags } from '../../../src/reducers/search/actionCreators';
 
-const initialState = { status: status.LOADED, results: [] };
+const initialState = { status: status.LOADED, query: null, results: [] };
 const results = [
   {
     "type": "section",
@@ -30,16 +30,16 @@ describe('searching', () => {
 
   it('must handle start of request', () => {
     const originalState = initialState;
-    const requestAction = { type: actionTypes.REQUEST };
+    const requestAction = { type: actionTypes.REQUEST, meta: { query: 'blabla' } };
     const state = reducer(originalState, requestAction);
-    expect(state).to.eql({ status: status.LOADING, results: [] });
+    expect(state).to.eql({ status: status.LOADING, query: 'blabla', results: [] });
   });
 
   it('must handle successful loading of the request', () => {
-    const originalState = initialState;
+    const originalState = { ...initialState, query: 'blabla' };
     const successAction = { type: actionTypes.SUCCESS, payload: results };
     const state = reducer(originalState, successAction);
-    expect(state).to.eql({ status: status.LOADED, results });
+    expect(state).to.eql({ status: status.LOADED, query: 'blabla', results });
   });
 
   it('must handle successful loading of the request', () => {

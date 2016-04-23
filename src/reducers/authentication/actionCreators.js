@@ -10,16 +10,18 @@ export const actionTypes = {
 };
 
 export const authenticate = (googleIdToken) => {
-  const body = new FormData();
-  body.append('grant_type', 'token');
-  body.append('google_id_token', googleIdToken);
-
   return {
     [CALL_API]: {
-      endpoint: `${API_BASE}/oauth2/token`,
-      meta: { googleIdToken },
-      body,
-      types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
+      endpoint: `${API_BASE}/oauth2/token?grant_type=token&google_id_token=${googleIdToken}`,
+      method: 'GET',
+      types: [
+        {
+          type: actionTypes.REQUEST,
+          meta: { googleIdToken }
+        },
+        actionTypes.SUCCESS,
+        actionTypes.ERROR
+      ]
     }
   };
 };

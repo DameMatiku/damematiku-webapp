@@ -1,6 +1,5 @@
 import { API_BASE } from '../../cfg';
 import { CALL_API } from 'redux-api-middleware';
-import FormData from 'form-data';
 
 export const actionTypes = {
   REQUEST:  'sections/REQUEST',
@@ -11,17 +10,11 @@ export const actionTypes = {
 export const loadMathSections = (tags) => loadSections('math', tags);
 
 export const loadSections = (subject, tags) => {
-  const body = new FormData();
-
-  for (let tag of tags) {
-    body.append('tags[]', tag);    
-  }
-
+  const queryString = tags.map(tag => `tags[]=${tag}`).join('&');
   return {
     [CALL_API]: {
-      endpoint: `${API_BASE}/subjects/${subject}`,
+      endpoint: `${API_BASE}/subjects/${subject}${queryString.length > 0 ? `?${queryString}` : ''}`,
       method: 'GET',
-      body,
       types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
     }
   };

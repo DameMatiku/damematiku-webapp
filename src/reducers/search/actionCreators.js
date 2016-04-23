@@ -1,6 +1,5 @@
 import { API_BASE } from '../../cfg';
 import { CALL_API } from 'redux-api-middleware';
-import FormData from 'form-data';
 
 export const actionTypes = {
   REQUEST:  'search/REQUEST',
@@ -9,15 +8,15 @@ export const actionTypes = {
 };
 
 export const performSearch = (term) => {
-  const body = new FormData();
-  body.append('q', term);
-
   return {
     [CALL_API]: {
-      endpoint: `${API_BASE}/search`,
+      endpoint: `${API_BASE}/search?q=${term}`,
       method: 'GET',
-      body,
-      types: [ actionTypes.REQUEST, actionTypes.SUCCESS, actionTypes.ERROR ]
+      types: [
+        { type: actionTypes.REQUEST, meta: { query: term } },
+        actionTypes.SUCCESS,
+        actionTypes.ERROR
+      ]
     }
   };
 };
