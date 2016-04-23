@@ -1,10 +1,13 @@
 import React from 'react';
 
-import UploadButton from '../UploadButton/UploadButton';
+import VideoView from '../VideoView/VideoView';
+import UploadButton from '../../containers/UploadButton/UploadButton';
+import EmptyChapterView from '../EmptyChapterView/EmptyChapterView';
 
-export ChapterDescription = ({ chapter }) = (
+const ChapterDescription = ({ chapter }) => (
   <div>
-
+    <h2>{chapter.name}</h2>
+    <p>{chapter.description}</p>
     <UploadButton chapter={chapter} />
   </div>
 );
